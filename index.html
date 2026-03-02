@@ -15,14 +15,14 @@
       --burgundy-soft: rgba(107, 45, 62, 0.08);
       --blue-grey: #5A7A8A;
       --blue-grey-light: #7A9BAB;
-      --dark: #2C2C2C;
-      --mid: #4A4A4A;
-      --light: #6E6E6E;
-      --muted: #9A9490;
-      --border: #9CA8AF;
-      --border-light: #ABB7BF;
+      --dark: #111111;
+      --mid: #222222;
+      --light: #333333;
+      --muted: #444444;
+      --border: #8D9BA4;
+      --border-light: #9CA8AF;
       --bg: #B6C1C8;
-      --bg-accent: #A8B4BB;
+      --bg-accent: rgba(255, 255, 255, 0.65);
       --white: #FFFFFF;
       --green: #2D6B4F;
       --amber: #8B6914;
@@ -143,8 +143,12 @@
     }
 
     .section-subtitle .en {
-      color: var(--blue-grey);
+      color: var(--burgundy);
+      font-size: 1.05rem;
+      font-weight: 500;
       font-style: italic;
+      display: inline-block;
+      margin-top: 0.25rem;
     }
 
     /* ===== QUESTION BLOCKS ===== */
@@ -167,8 +171,9 @@
     }
 
     .q-label-en {
-      font-size: 0.85rem;
-      color: var(--blue-grey);
+      font-size: 0.95rem;
+      color: var(--burgundy);
+      font-weight: 500;
       font-style: italic;
       margin-bottom: 0.75rem;
       line-height: 1.4;
@@ -225,7 +230,7 @@
 
     .option-item:hover {
       border-color: var(--border);
-      background: var(--bg-accent);
+      background: #EBF0F3;
     }
 
     .option-item.selected {
@@ -290,10 +295,12 @@
     }
 
     .option-text-en {
-      font-size: 0.8rem;
-      color: var(--blue-grey);
+      font-size: 0.95rem;
+      color: var(--burgundy);
+      font-weight: 500;
       font-style: italic;
-      line-height: 1.3;
+      line-height: 1.4;
+      margin-top: 0.15rem;
     }
 
     .option-points {
@@ -388,18 +395,34 @@
     }
 
     .welcome-body .en {
-      color: var(--blue-grey);
+      color: var(--burgundy);
+      font-size: 1.05rem;
+      font-weight: 500;
       font-style: italic;
+      display: inline-block;
+      margin-top: 0.5rem;
     }
 
     .welcome-note {
-      font-size: 0.8rem;
-      color: var(--muted);
+      font-size: 0.85rem;
+      color: var(--mid);
       background: var(--bg-accent);
-      padding: 1rem 1.25rem;
+      padding: 1.2rem 1.25rem;
       border-radius: 8px;
       line-height: 1.6;
       margin-bottom: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      backdrop-filter: blur(4px);
+    }
+
+    .welcome-note .en {
+      color: var(--burgundy);
+      font-size: 0.95rem;
+      font-weight: 500;
+      font-style: italic;
+      display: inline-block;
+      margin-top: 0.4rem;
     }
 
     .welcome-start {
