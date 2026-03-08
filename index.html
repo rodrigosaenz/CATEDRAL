@@ -610,7 +610,7 @@
         🔒 Sus respuestas son confidenciales<br><br>
         <span class="en">Estimated time: 15-30 min · Bilingual: ES/EN · Your answers are confidential</span>
       </div>
-      <button class="btn btn-primary welcome-start" onclick="nextScreen()">
+      <button type="button" class="btn btn-primary welcome-start" onclick="nextScreen()">
         Comenzar / Start
       </button>
     </div>
@@ -898,8 +898,8 @@
       html += `<div class="section-subtitle"><span class="en">${screen.subtitle}</span></div>`;
       screen.questions.forEach(q => { html += renderQuestion(q); });
       html += `<div class="btn-row">`;
-      html += `<button class="btn btn-secondary" onclick="prevScreen()">← Atrás</button>`;
-      html += `<button class="btn btn-primary" onclick="nextScreen()">Siguiente →</button>`;
+      html += `<button type="button" class="btn btn-secondary" onclick="prevScreen()">← Atrás</button>`;
+      html += `<button type="button" class="btn btn-primary" onclick="nextScreen()">Siguiente →</button>`;
       html += `</div></div>`;
       return html;
     }
@@ -1466,8 +1466,6 @@
     let dynamicBuilt = false;
 
     function nextScreen() {
-      const allScreenElements = document.querySelectorAll('.screen');
-
       // Validate current screen before advancing
       if (currentScreen > 0 && currentScreen <= screens.length) {
         const screenIndex = currentScreen - 1; // screens array is 0-indexed but screens start at 1
@@ -1524,8 +1522,8 @@
         ${modulesActivated.map(m => `<span class="module-tag">${m}</span>`).join('')}
       </div>
       <div class="btn-row">
-        <button class="btn btn-secondary" onclick="prevScreen()">← Atrás</button>
-        <button class="btn btn-primary" onclick="submitForm()">Enviar / Submit ✓</button>
+        <button type="button" class="btn btn-secondary" onclick="prevScreen()">← Atrás</button>
+        <button type="button" class="btn btn-primary" onclick="submitForm()">Enviar / Submit ✓</button>
       </div>
     </div>`;
 
@@ -1534,17 +1532,15 @@
         totalScreens = confirmIdx + 2; // +1 for welcome screen
       }
 
-      // Hide current
-      allScreenElements[currentScreen]?.classList.remove('active');
-      // Also check new elements
-      const updatedScreens = document.querySelectorAll('.screen');
-      updatedScreens[currentScreen]?.classList.remove('active');
+      // Verify next screen exists before transitioning
+      const nextIndex = currentScreen + 1;
+      const allScreensNow = document.querySelectorAll('.screen');
+      if (!allScreensNow[nextIndex]) return;
 
-      currentScreen++;
-      const newScreens = document.querySelectorAll('.screen');
-      if (newScreens[currentScreen]) {
-        newScreens[currentScreen].classList.add('active');
-      }
+      // Hide current, show next
+      allScreensNow[currentScreen]?.classList.remove('active');
+      allScreensNow[nextIndex].classList.add('active');
+      currentScreen = nextIndex;
       updateProgress();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
