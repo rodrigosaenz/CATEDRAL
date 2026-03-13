@@ -1,16 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Refactored Project</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CATEDRAL — Intake</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-    <div id="app"></div>
-    <script src="js/config.js"></script>
-    <script src="js/validator.js"></script>
-    <script src="js/storage.js"></script>
-    <script src="js/script.js"></script>
+
+  <div class="container">
+    <div class="header">
+      <img src="../Logo.png" alt="CATEDRAL Culture Propeller" class="header-logo">
+    </div>
+
+    <div class="progress-container">
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill" style="width:0%"></div>
+      </div>
+      <div class="progress-text" id="progressText"></div>
+    </div>
+
+    <!-- ===== SCREEN 0: WELCOME ===== -->
+    <div class="screen active" id="screen-0">
+      <div class="welcome-icon">
+        <img src="../Isotipo Catedral-04.png" alt="Catedral symbol" width="160"
+          style="display:block;margin:0 auto 24px auto;opacity:0.9" />
+      </div>
+      <div class="welcome-title">Bienvenido/a a CATEDRAL</div>
+      <div class="welcome-body">
+        Este formulario es su punto de entrada al ecosistema CATEDRAL. Nos permitirá conocer su proyecto, evaluar su
+        etapa de desarrollo, y determinar cómo podemos acompañarlo de la mejor manera.
+        <br><br>
+        <span class="en">This form is your entry point to the CATEDRAL ecosystem. It will allow us to learn about your
+          project, assess your development stage, and determine how we can best support you.</span>
+      </div>
+      <div class="welcome-note">
+        ⏱ Tiempo estimado: 15-30 minutos<br>
+        🌐 Formulario bilingüe: Español / English<br>
+        🔒 Sus respuestas son confidenciales<br><br>
+        <span class="en">Estimated time: 15-30 min · Bilingual: ES/EN · Your answers are confidential</span>
+      </div>
+      <button type="button" class="btn btn-primary welcome-start" onclick="nextScreen()">
+        Comenzar / Start
+      </button>
+    </div>
+
+    <!-- Dynamic screens inserted by JS -->
+    <div id="form-screens"></div>
+  </div>
+
+  <div class="sending-overlay" id="sendingOverlay">
+    <div class="sending-spinner"></div>
+    <div class="sending-text">Enviando respuestas / Sending responses...</div>
+  </div>
+
+  <!-- Load scripts in dependency order -->
+  <script src="js/config.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/validation.js"></script>
+  <script src="js/handlers.js"></script>
+  <script src="js/script.js"></script>
+
 </body>
+
 </html>
